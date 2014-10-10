@@ -10,8 +10,7 @@ package Clases;
  * @author Darwin
  */
 public class Proveedor extends Persona
-{    
-
+{   
     public Proveedor(String Emp_Proveedor, int RucEmp_Proveedor, String DirEmp_Proveedor, String TelEmp_Proveedor, String Tip_Proveedor, double SalEn_Proveedor, int Id_persona, int CedRuc_persona, String Nom_Persona, String Dir_Persona, String Tel_Persona, String Email_Persona) 
     {
         super(Id_persona, CedRuc_persona, Nom_Persona, Dir_Persona, Tel_Persona, Email_Persona);
