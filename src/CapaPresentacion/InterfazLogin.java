@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package Presentacion;
+package CapaPresentacion;
 
 import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
@@ -13,25 +8,18 @@ import javax.swing.JOptionPane;
  * @author Darwin
  */
 public class InterfazLogin extends javax.swing.JFrame 
-{
-    /**
-     * Creates new form InterfazMenu
-     */
+{   
     public InterfazLogin() 
     {
         initComponents();
         Fondo fondo = new Fondo();
         this.add(fondo, BorderLayout.CENTER);
         this.pack();        
-        this.setSize(340,272);
-        //this.setLocation(360,5);
+        this.setSize(340,260);
+        this.setLocation(360,5);
         txtUsuario.requestFocus();
         jPContrasena.setEnabled(true);
-    }
-    
-    
-    int a;
-
+    }  
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -51,18 +39,19 @@ public class InterfazLogin extends javax.swing.JFrame
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setForeground(new java.awt.Color(102, 102, 255));
-        setPreferredSize(new java.awt.Dimension(322, 240));
 
         jLabel1.setFont(new java.awt.Font("Bookman Old Style", 3, 18)); // NOI18N
         jLabel1.setText("ADMINISTRADOR");
 
         jLabel2.setFont(new java.awt.Font("Book Antiqua", 0, 12)); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/People.png"))); // NOI18N
         jLabel2.setText("USUARIO:");
 
         jLabel3.setFont(new java.awt.Font("Book Antiqua", 0, 12)); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Lock.png"))); // NOI18N
         jLabel3.setText("CONTRASEÑA: ");
 
-        btnIngresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Person.png"))); // NOI18N
+        btnIngresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Person.png"))); // NOI18N
         btnIngresar.setText("INGRESAR");
         btnIngresar.setBorder(null);
         btnIngresar.setBorderPainted(false);
@@ -83,7 +72,7 @@ public class InterfazLogin extends javax.swing.JFrame
             }
         });
 
-        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Exit.png"))); // NOI18N
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Exit.png"))); // NOI18N
         btnSalir.setText("SALIR");
         btnSalir.setBorder(null);
         btnSalir.setBorderPainted(false);
@@ -91,7 +80,7 @@ public class InterfazLogin extends javax.swing.JFrame
         btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnSalir.setIconTextGap(-3);
-        btnSalir.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Exit.png"))); // NOI18N
+        btnSalir.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Exit.png"))); // NOI18N
         btnSalir.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         btnSalir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -117,28 +106,28 @@ public class InterfazLogin extends javax.swing.JFrame
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(44, Short.MAX_VALUE)
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jLabel1))
+                        .addGap(17, 17, 17)
+                        .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jPContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(18, 18, 18)
+                        .addComponent(jPContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(38, 38, 38))
             .addGroup(layout.createSequentialGroup()
-                .addGap(81, 81, 81)
-                .addComponent(btnIngresar)
-                .addGap(40, 40, 40)
-                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(btnIngresar)
+                        .addGap(40, 40, 40)
+                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(jLabel1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -148,7 +137,7 @@ public class InterfazLogin extends javax.swing.JFrame
                 .addComponent(jLabel1)
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
                     .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -158,84 +147,88 @@ public class InterfazLogin extends javax.swing.JFrame
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnSalir)
                     .addComponent(btnIngresar))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
-        String usuario;
-        usuario=txtUsuario.getText();
-        JOptionPane.showMessageDialog(null,"Bienvenido ");
-        if( usuario.equals("Darwin"))
-        {           
-            JOptionPane.showMessageDialog(null,"Bienvenido ADMINISTRADOR");            
-            jPContrasena.requestFocusInWindow();
-            jPContrasena.setEnabled(true);  
-        }  
-        else 
-        {
-            JOptionPane.showMessageDialog(null, "Usuario incorrecto");
-            txtUsuario.setText("");
-            txtUsuario.setEnabled(false);
-            btnSalir.requestFocusInWindow();
-        }
+//        String usuario;
+//        usuario=txtUsuario.getText();
+//        JOptionPane.showMessageDialog(null,"Bienvenido ");
+//        if( usuario.equals("Darwin"))
+//        {           
+//            JOptionPane.showMessageDialog(null,"Bienvenido ADMINISTRADOR");            
+//            jPContrasena.requestFocusInWindow();
+//            jPContrasena.setEnabled(true);  
+//        }  
+//        else 
+//        {
+//            JOptionPane.showMessageDialog(null, "Usuario Incorrecto");
+//            txtUsuario.setText("");
+//            txtUsuario.setEnabled(false);
+//            btnSalir.requestFocusInWindow();
+//        }
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
     private void jPContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPContrasenaActionPerformed
-        String contraseña;
-        contraseña=String.valueOf(jPContrasena.getPassword());
-        String usuario;
-        usuario=txtUsuario.getText();
-        int cont=0;
-       
-            if(contraseña.equals("1234")) 
-            {
-                btnIngresar.requestFocusInWindow();
-                JOptionPane.showMessageDialog(null,"**BienVenido al sistema ADMINISTRADOR**");
-            }
-            else 
-            {
-                JOptionPane.showMessageDialog(null,"Vuela a intentar");
-                jPContrasena.setText("");
-                jPContrasena.requestFocusInWindow();
-             } 
+//        String contraseña;
+//        contraseña=String.valueOf(jPContrasena.getPassword());
+//        String usuario;
+//        usuario=txtUsuario.getText();
+//        int cont=0;       
+//            if(contraseña.equals("1234")) 
+//            {
+//                btnIngresar.requestFocusInWindow();
+//                JOptionPane.showMessageDialog(null,"**BienVenido al sistema ADMINISTRADOR**");
+//            }
+//            else 
+//            {
+//                JOptionPane.showMessageDialog(null,"Vuela a intentar");
+//                jPContrasena.setText("");
+//                jPContrasena.requestFocusInWindow();
+//             } 
     }//GEN-LAST:event_jPContrasenaActionPerformed
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         String contraseña;
-        contraseña=String.valueOf(jPContrasena.getPassword());
+        contraseña = String.valueOf(jPContrasena.getPassword());
         String usuario;
-        usuario=txtUsuario.getText();
-        int cont=0;
-        if(usuario.equals("Darwin")&& contraseña.equals("1234")) 
+        usuario = txtUsuario.getText();
+        if(usuario.equals("Darwin") && contraseña.equals("1234")) 
         {
-            InterfazMenu Menu =new InterfazMenu();
-            JOptionPane.showMessageDialog(null,"**Bienvenido al Sistema ADMINISTRADOR**");
+            InterfazMenu menu = new InterfazMenu();
+            JOptionPane.showMessageDialog(null,"Bienvenido al Sistema ADMINISTRADOR");
             JOptionPane.showMessageDialog(null,"Esta accediendo al Menu Principal");
-            Menu.setVisible(true);
+            menu.setVisible(true);
             dispose();
         }
-        else
+        else if(!"Darwin".equals(usuario))
         {
-            JOptionPane.showMessageDialog(null,"Vuela a intentar");
+            JOptionPane.showMessageDialog(null,"Usuario Incorrecto");
+            txtUsuario.setText("");
+            txtUsuario.requestFocusInWindow();
+         }
+        else if(!"123".equals(contraseña))
+        {
+            JOptionPane.showMessageDialog(null,"Contraseña Incorrecta");
             jPContrasena.setText("");
             jPContrasena.requestFocusInWindow();
-         }
+        }
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void btnIngresarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnIngresarKeyPressed
-        InterfazMenu Menu = new InterfazMenu();
-        JOptionPane.showMessageDialog(null,"**Bienvenido al Sistema**");
-        JOptionPane.showMessageDialog(null,"Esta accediendo al Menu Principal");
-        Menu.show();
-        dispose();
+//        InterfazMenu Menu = new InterfazMenu();
+//        JOptionPane.showMessageDialog(null,"**Bienvenido al Sistema**");
+//        JOptionPane.showMessageDialog(null,"Esta accediendo al Menu Principal");
+//        Menu.setVisible(true);
+//        dispose();
     }//GEN-LAST:event_btnIngresarKeyPressed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        a=JOptionPane.showConfirmDialog(null,"Desea continuar con la salida","***Aviso***",JOptionPane.YES_NO_OPTION);
-        if(a==JOptionPane.YES_OPTION) 
+        int Mensaje = JOptionPane.showConfirmDialog(null,"Desea continuar con la salida","***Aviso***",JOptionPane.YES_NO_OPTION);
+        if(Mensaje == JOptionPane.YES_OPTION) 
         {
             JOptionPane.showMessageDialog(null,"Gracias");
             dispose();
