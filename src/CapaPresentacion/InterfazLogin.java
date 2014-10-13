@@ -1,14 +1,18 @@
 package CapaPresentacion;
 
+import Clases.Validaciones;
 import java.awt.BorderLayout;
+import java.awt.Toolkit;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
-
 /**
  *
  * @author Darwin
  */
 public class InterfazLogin extends javax.swing.JFrame 
-{   
+{  
+    Validaciones Ob = new Validaciones();
     public InterfazLogin() 
     {
         initComponents();
@@ -19,7 +23,9 @@ public class InterfazLogin extends javax.swing.JFrame
         this.setLocation(360,5);
         txtUsuario.requestFocus();
         jPContrasena.setEnabled(true);
-    }  
+        txtUsuario.setDocument(new Validaciones());
+    }   
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -94,6 +100,11 @@ public class InterfazLogin extends javax.swing.JFrame
                 txtUsuarioActionPerformed(evt);
             }
         });
+        txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyPressed(evt);
+            }
+        });
 
         jPContrasena.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,41 +165,11 @@ public class InterfazLogin extends javax.swing.JFrame
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
-//        String usuario;
-//        usuario=txtUsuario.getText();
-//        JOptionPane.showMessageDialog(null,"Bienvenido ");
-//        if( usuario.equals("Darwin"))
-//        {           
-//            JOptionPane.showMessageDialog(null,"Bienvenido ADMINISTRADOR");            
-//            jPContrasena.requestFocusInWindow();
-//            jPContrasena.setEnabled(true);  
-//        }  
-//        else 
-//        {
-//            JOptionPane.showMessageDialog(null, "Usuario Incorrecto");
-//            txtUsuario.setText("");
-//            txtUsuario.setEnabled(false);
-//            btnSalir.requestFocusInWindow();
-//        }
+
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
     private void jPContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPContrasenaActionPerformed
-//        String contraseña;
-//        contraseña=String.valueOf(jPContrasena.getPassword());
-//        String usuario;
-//        usuario=txtUsuario.getText();
-//        int cont=0;       
-//            if(contraseña.equals("1234")) 
-//            {
-//                btnIngresar.requestFocusInWindow();
-//                JOptionPane.showMessageDialog(null,"**BienVenido al sistema ADMINISTRADOR**");
-//            }
-//            else 
-//            {
-//                JOptionPane.showMessageDialog(null,"Vuela a intentar");
-//                jPContrasena.setText("");
-//                jPContrasena.requestFocusInWindow();
-//             } 
+
     }//GEN-LAST:event_jPContrasenaActionPerformed
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
@@ -196,21 +177,21 @@ public class InterfazLogin extends javax.swing.JFrame
         contraseña = String.valueOf(jPContrasena.getPassword());
         String usuario;
         usuario = txtUsuario.getText();
-        if(usuario.equals("Darwin") && contraseña.equals("1234")) 
+        if(usuario.equals("DARWIN") && contraseña.equals("1234")) 
         {
             InterfazMenu menu = new InterfazMenu();
             JOptionPane.showMessageDialog(null,"Bienvenido al Sistema ADMINISTRADOR");
-            JOptionPane.showMessageDialog(null,"Esta accediendo al Menu Principal");
+            JOptionPane.showMessageDialog(null,"Está accediendo al Menú Principal");
             menu.setVisible(true);
             dispose();
         }
-        else if(!"Darwin".equals(usuario))
+        else if(!"DARWIN".equals(usuario))
         {
             JOptionPane.showMessageDialog(null,"Usuario Incorrecto");
             txtUsuario.setText("");
             txtUsuario.requestFocusInWindow();
          }
-        else if(!"123".equals(contraseña))
+        else if(!"1234".equals(contraseña))
         {
             JOptionPane.showMessageDialog(null,"Contraseña Incorrecta");
             jPContrasena.setText("");
@@ -219,11 +200,7 @@ public class InterfazLogin extends javax.swing.JFrame
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void btnIngresarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnIngresarKeyPressed
-//        InterfazMenu Menu = new InterfazMenu();
-//        JOptionPane.showMessageDialog(null,"**Bienvenido al Sistema**");
-//        JOptionPane.showMessageDialog(null,"Esta accediendo al Menu Principal");
-//        Menu.setVisible(true);
-//        dispose();
+       
     }//GEN-LAST:event_btnIngresarKeyPressed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -234,6 +211,11 @@ public class InterfazLogin extends javax.swing.JFrame
             dispose();
         }
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void txtUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyPressed
+        Validaciones.SoloLetras(txtUsuario);
+        Validaciones.CantidadCaracteres(txtUsuario, 6);
+    }//GEN-LAST:event_txtUsuarioKeyPressed
 
     /**
      * @param args the command line arguments
