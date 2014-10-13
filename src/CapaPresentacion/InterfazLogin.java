@@ -2,27 +2,34 @@ package CapaPresentacion;
 
 import Clases.Validaciones;
 import java.awt.BorderLayout;
-import java.awt.Toolkit;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 /**
  *
  * @author Darwin
  */
 public class InterfazLogin extends javax.swing.JFrame 
-{  
-    Validaciones Ob = new Validaciones();
+{    
     public InterfazLogin() 
     {
+        this.setUndecorated(true);
+        try 
+        {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
         initComponents();
         Fondo fondo = new Fondo();
         this.add(fondo, BorderLayout.CENTER);
+        this.setLocationRelativeTo(null);
         this.pack();        
         this.setSize(340,260);
-        this.setLocation(360,5);
+        //this.setLocation(360,5);
         txtUsuario.requestFocus();
-        jPContrasena.setEnabled(true);
+        //jPContrasena.setEnabled(true);
         txtUsuario.setDocument(new Validaciones());
     }   
    
@@ -179,6 +186,7 @@ public class InterfazLogin extends javax.swing.JFrame
         usuario = txtUsuario.getText();
         if(usuario.equals("DARWIN") && contraseña.equals("1234")) 
         {
+            btnIngresar.setEnabled(true);
             InterfazMenu menu = new InterfazMenu();
             JOptionPane.showMessageDialog(null,"Bienvenido al Sistema ADMINISTRADOR");
             JOptionPane.showMessageDialog(null,"Está accediendo al Menú Principal");
@@ -186,7 +194,7 @@ public class InterfazLogin extends javax.swing.JFrame
             dispose();
         }
         else if(!"DARWIN".equals(usuario))
-        {
+        {            
             JOptionPane.showMessageDialog(null,"Usuario Incorrecto");
             txtUsuario.setText("");
             txtUsuario.requestFocusInWindow();
@@ -214,7 +222,7 @@ public class InterfazLogin extends javax.swing.JFrame
 
     private void txtUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyPressed
         Validaciones.SoloLetras(txtUsuario);
-        Validaciones.CantidadCaracteres(txtUsuario, 6);
+        Validaciones.CantidadCaracteres(txtUsuario, 6);        
     }//GEN-LAST:event_txtUsuarioKeyPressed
 
     /**
