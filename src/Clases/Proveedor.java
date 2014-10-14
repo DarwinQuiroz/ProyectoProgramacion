@@ -10,16 +10,16 @@ package Clases;
  * @author Darwin
  */
 public class Proveedor extends Persona
-{   
-    public Proveedor(String Emp_Proveedor, int RucEmp_Proveedor, String DirEmp_Proveedor, String TelEmp_Proveedor, String Tip_Proveedor, double SalEn_Proveedor, int Id_persona, int CedRuc_persona, String Nom_Persona, String Dir_Persona, String Tel_Persona, String Email_Persona) 
+{ 
+    public Proveedor(String Emp_Proveedor, int RucEmp_Proveedor, String DirEmp_Proveedor, String TelEmp_Proveedor, String Tip_Proveedor, double SalEn_Proveedor, int Id_persona, int CedRuc_persona, String Nom_Persona, String Dir_Persona, String Tel_Persona, String Ape_Persona, String Email_Persona) 
     {
-        super(Id_persona, CedRuc_persona, Nom_Persona, Dir_Persona, Tel_Persona, Email_Persona);
+        super(Id_persona, CedRuc_persona, Nom_Persona, Dir_Persona, Tel_Persona, Ape_Persona, Email_Persona);
         this.Emp_Proveedor = Emp_Proveedor;
         this.RucEmp_Proveedor = RucEmp_Proveedor;
         this.DirEmp_Proveedor = DirEmp_Proveedor;
         this.TelEmp_Proveedor = TelEmp_Proveedor;
         this.Tip_Proveedor = Tip_Proveedor;
-        this.SalEn_Proveedor = SalEn_Proveedor;
+        this.SalPen_Proveedor = SalEn_Proveedor;
     }
     
     private String Emp_Proveedor;
@@ -132,26 +132,26 @@ public class Proveedor extends Persona
         this.Tip_Proveedor = Tip_Proveedor;
     }
 
-    private double SalEn_Proveedor;
+    private double SalPen_Proveedor;
 
     /**
-     * Get the value of SalEn_Proveedor
+     * Get the value of SalPen_Proveedor
      *
-     * @return the value of SalEn_Proveedor
+     * @return the value of SalPen_Proveedor
      */
-    public double getSalEn_Proveedor()
+    public double getSalPen_Proveedor()
     {
-        return SalEn_Proveedor;
+        return SalPen_Proveedor;
     }
 
     /**
-     * Set the value of SalEn_Proveedor
+     * Set the value of SalPen_Proveedor
      *
-     * @param SalEn_Proveedor new value of SalEn_Proveedor
+     * @param SalPen_Proveedor new value of SalPen_Proveedor
      */
-    public void setSalEn_Proveedor(double SalEn_Proveedor)
+    public void setSalPen_Proveedor(double SalPen_Proveedor)
     {
-        this.SalEn_Proveedor = SalEn_Proveedor;
+        this.SalPen_Proveedor = SalPen_Proveedor;
     }
 
 }

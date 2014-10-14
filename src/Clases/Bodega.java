@@ -12,13 +12,14 @@ package Clases;
 public class Bodega 
 {
 
-    public Bodega(int Id_Bodega, Sucursal Id_Sucursal, String Cod_Bodega, String Nom_Bodega, String Des_Bodega) 
+    public Bodega(int Id_Bodega, Sucursal Id_Sucursal, String Cod_Bodega, String Nom_Bodega, String Des_Bodega, int Ext_Bodega) 
     {
         this.Id_Bodega = Id_Bodega;
         this.Id_Sucursal = Id_Sucursal;
         this.Cod_Bodega = Cod_Bodega;
         this.Nom_Bodega = Nom_Bodega;
         this.Des_Bodega = Des_Bodega;
+        this.Ext_Bodega = Ext_Bodega;
     }
     
     private int Id_Bodega;
@@ -129,6 +130,28 @@ public class Bodega
     public void setDes_Bodega(String Des_Bodega) 
     {
         this.Des_Bodega = Des_Bodega;
+    }
+
+    private int Ext_Bodega;
+
+    /**
+     * Get the value of Ext_Bodega
+     *
+     * @return the value of Ext_Bodega
+     */
+    public int getExt_Bodega() 
+    {
+        return Ext_Bodega;
+    }
+
+    /**
+     * Set the value of Ext_Bodega
+     *
+     * @param Ext_Bodega new value of Ext_Bodega
+     */
+    public void setExt_Bodega(int Ext_Bodega) 
+    {
+        this.Ext_Bodega = Ext_Bodega;
     }
 
 }

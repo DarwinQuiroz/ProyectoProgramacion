@@ -11,15 +11,13 @@ package Clases;
  */
 public class Cliente extends Persona
 {
-
-    public Cliente(String Tip_Cliente, double SalPen_Cliente, String Promo_Producto, int Id_persona, int CedRuc_persona, String Nom_Persona, String Dir_Persona, String Tel_Persona, String Email_Persona) 
+    public Cliente(String Tip_Cliente, double SalPen_Cliente, int Id_persona, int CedRuc_persona, String Nom_Persona, String Dir_Persona, String Tel_Persona, String Ape_Persona, String Email_Persona) 
     {
-        super(Id_persona, CedRuc_persona, Nom_Persona, Dir_Persona, Tel_Persona, Email_Persona);
+        super(Id_persona, CedRuc_persona, Nom_Persona, Dir_Persona, Tel_Persona, Ape_Persona, Email_Persona);
         this.Tip_Cliente = Tip_Cliente;
         this.SalPen_Cliente = SalPen_Cliente;
-        this.Promo_Producto = Promo_Producto;
     }
-
+   
     private String Tip_Cliente;
 
     /**
@@ -63,27 +61,4 @@ public class Cliente extends Persona
     {        
         this.SalPen_Cliente = SalPen_Cliente;
     }
-
-    private String Promo_Producto;
-
-    /**
-     * Get the value of Promo_Producto
-     *
-     * @return the value of Promo_Producto
-     */
-    public String getPromo_Producto() 
-    {
-        return Promo_Producto;
-    }
-
-    /**
-     * Set the value of Promo_Producto
-     *
-     * @param Promo_Producto new value of Promo_Producto
-     */
-    public void setPromo_Producto(String Promo_Producto) 
-    {
-        this.Promo_Producto = Promo_Producto;
-    }
-
 }

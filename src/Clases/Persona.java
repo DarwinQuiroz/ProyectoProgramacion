@@ -10,15 +10,16 @@ package Clases;
  * @author Darwin
  */
 public class Persona 
-{
+{    
 
-    public Persona(int Id_persona, int CedRuc_persona, String Nom_Persona, String Dir_Persona, String Tel_Persona, String Email_Persona) 
+    public Persona(int Id_persona, int CedRuc_persona, String Nom_Persona, String Dir_Persona, String Tel_Persona, String Ape_Persona, String Email_Persona) 
     {
         this.Id_persona = Id_persona;
         this.CedRuc_persona = CedRuc_persona;
         this.Nom_Persona = Nom_Persona;
         this.Dir_Persona = Dir_Persona;
         this.Tel_Persona = Tel_Persona;
+        this.Ape_Persona = Ape_Persona;
         this.Email_Persona = Email_Persona;
     }
    
@@ -131,6 +132,29 @@ public class Persona
     {
         this.Tel_Persona = Tel_Persona;
     }
+    
+    private String Ape_Persona;
+
+    /**
+     * Get the value of Ape_Persona
+     *
+     * @return the value of Ape_Persona
+     */
+    public String getApe_Persona() 
+    {
+        return Ape_Persona;
+    }
+
+    /**
+     * Set the value of Ape_Persona
+     *
+     * @param Ape_Persona new value of Ape_Persona
+     */
+    public void setApe_Persona(String Ape_Persona) 
+    {
+        this.Ape_Persona = Ape_Persona;
+    }
+
 
     private String Email_Persona;
 

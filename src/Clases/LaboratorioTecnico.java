@@ -11,15 +11,15 @@ package Clases;
  */
 public class LaboratorioTecnico 
 {
-
-    public LaboratorioTecnico(int Id_Lab, Sucursal Id_Sucursal, String Cod_Lab, String Nom_Lab, String Des_Lab) 
+    public LaboratorioTecnico(int Id_Lab, Sucursal Id_Sucursal, String Cod_Lab, String Nom_Lab, String Des_Lab, int Ext_Lab) 
     {
         this.Id_Lab = Id_Lab;
         this.Id_Sucursal = Id_Sucursal;
         this.Cod_Lab = Cod_Lab;
         this.Nom_Lab = Nom_Lab;
         this.Des_Lab = Des_Lab;
-    }
+        this.Ext_Lab = Ext_Lab;
+    }   
    
     private int Id_Lab;
 
@@ -131,4 +131,25 @@ public class LaboratorioTecnico
         this.Des_Lab = Des_Lab;
     }
 
+    private int Ext_Lab;
+
+    /**
+     * Get the value of Ext_Lab
+     *
+     * @return the value of Ext_Lab
+     */
+    public int getExt_Lab() 
+    {
+        return Ext_Lab;
+    }
+
+    /**
+     * Set the value of Ext_Lab
+     *
+     * @param Ext_Lab new value of Ext_Lab
+     */
+    public void setExt_Lab(int Ext_Lab) 
+    {
+        this.Ext_Lab = Ext_Lab;
+    }
 }
