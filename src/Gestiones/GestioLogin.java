@@ -15,9 +15,9 @@ import javax.swing.JOptionPane;
  *
  * @author Darwin
  */
-public class GestioLogin 
+public class GestioLogin
 {
-    Empleado ObEmpleado = new Empleado(null, null, null, 00, 00, 00, 00, 000, null, null, null, null, null);
+    Empleado ObEmpleado = new Empleado(null, null, null, 0, 0, 00, 000000, null, null, null, null, null);
     
     public GestioLogin() 
     {
@@ -32,7 +32,7 @@ public class GestioLogin
         ("SELECT User_Empleado, Clave_Empleado FROM Empleado WHERE User_Empleado ='"+ObEmpleado.getUser_Empleado()+"' AND Clave_Empleado='"+ObEmpleado.getClave_Empleado()+"'");
         if(rs.next())
         {
-            JOptionPane.showMessageDialog(null, "logueo correcto");
+            JOptionPane.showMessageDialog(null, "logueo correcto");            
 //            frmMenu menu=new frmMenu();
 //            menu.show();
 //            menu.setExtendedState(new frmMenu().MAXIMIZED_BOTH);

@@ -12,7 +12,7 @@ package Clases;
 public class Persona 
 {    
 
-    public Persona(int Id_persona, int CedRuc_persona, String Nom_Persona, String Dir_Persona, String Tel_Persona, String Ape_Persona, String Email_Persona) 
+    public Persona(int CedRuc_persona, String Nom_Persona, String Dir_Persona, String Tel_Persona, String Ape_Persona, String Email_Persona) 
     {
         this.Id_persona = Id_persona;
         this.CedRuc_persona = CedRuc_persona;

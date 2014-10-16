@@ -14,9 +14,9 @@ import java.sql.SQLException;
  *
  * @author Darwin
  */
-public class GestionCliente implements IGestiones
+public class GestionCliente implements IGestion
 {
-    private Cliente ObCliente = new Cliente(null, 00.00, 00, 0000, null, null, null, null, null);
+    private Cliente ObCliente = new Cliente(null, 00, 000000, null, null, null, null, null);
 
     public GestionCliente() 
     {

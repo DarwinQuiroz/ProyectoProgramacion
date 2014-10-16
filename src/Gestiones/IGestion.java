@@ -11,7 +11,7 @@ import java.sql.SQLException;
  *
  * @author Darwin
  */
-public interface IGestiones 
+public interface IGestion 
 {
     public void Grabar () throws SQLException;
     public void Modificar() throws SQLException;

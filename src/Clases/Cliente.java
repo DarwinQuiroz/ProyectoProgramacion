@@ -11,9 +11,9 @@ package Clases;
  */
 public class Cliente extends Persona
 {
-    public Cliente(String Tip_Cliente, double SalPen_Cliente, int Id_persona, int CedRuc_persona, String Nom_Persona, String Dir_Persona, String Tel_Persona, String Ape_Persona, String Email_Persona) 
+    public Cliente(String Tip_Cliente, double SalPen_Cliente,int CedRuc_persona, String Nom_Persona, String Dir_Persona, String Tel_Persona, String Ape_Persona, String Email_Persona) 
     {
-        super(Id_persona, CedRuc_persona, Nom_Persona, Dir_Persona, Tel_Persona, Ape_Persona, Email_Persona);
+        super(CedRuc_persona, Nom_Persona, Dir_Persona, Tel_Persona, Ape_Persona, Email_Persona);
         this.Tip_Cliente = Tip_Cliente;
         this.SalPen_Cliente = SalPen_Cliente;
     }

@@ -10,11 +10,10 @@ package Clases;
  * @author Darwin
  */
 public class Empleado extends Persona
-{
-
-    public Empleado(String Tip_Empleado, String User_Empleado, String Clave_Empleado, int NHT_Empledo, int NHE_Empleado, double VPH_Empleado, int Id_persona, int CedRuc_persona, String Nom_Persona, String Dir_Persona, String Tel_Persona, String Ape_Persona, String Email_Persona) 
+{ 
+    public Empleado(String Tip_Empleado, String User_Empleado, String Clave_Empleado, int NHT_Empledo, int NHE_Empleado, double VPH_Empleado,int CedRuc_persona, String Nom_Persona, String Dir_Persona, String Tel_Persona, String Ape_Persona, String Email_Persona) 
     {
-        super(Id_persona, CedRuc_persona, Nom_Persona, Dir_Persona, Tel_Persona, Ape_Persona, Email_Persona);
+        super(CedRuc_persona, Nom_Persona, Dir_Persona, Tel_Persona, Ape_Persona, Email_Persona);
         this.Tip_Empleado = Tip_Empleado;
         this.User_Empleado = User_Empleado;
         this.Clave_Empleado = Clave_Empleado;
@@ -22,7 +21,6 @@ public class Empleado extends Persona
         this.NHE_Empleado = NHE_Empleado;
         this.VPH_Empleado = VPH_Empleado;
     }
-       
     private String Tip_Empleado;
 
     /**
@@ -154,5 +152,4 @@ public class Empleado extends Persona
     {
         this.VPH_Empleado = VPH_Empleado;
     }
-
 }
