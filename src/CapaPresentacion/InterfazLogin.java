@@ -1,9 +1,11 @@
 package CapaPresentacion;
 
 import Clases.Validaciones;
+import Gestiones.GestionLogin;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import static java.lang.Thread.sleep;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 /**
@@ -11,7 +13,14 @@ import javax.swing.UIManager;
  * @author Darwin
  */
 public class InterfazLogin extends javax.swing.JFrame 
-{    
+{
+    GestionLogin gestionLogin = new GestionLogin();
+    public void PasarDeNegocioAInterfaz()
+    {
+//        txtUsuario.setText(gestionLogin.getUser_Empleado());
+//        jPContrasena.setText(gestionLogin.getEmpleado().getClave_Empleado());
+    }
+    
     public InterfazLogin() 
     {
         this.setUndecorated(true);
@@ -231,15 +240,31 @@ public class InterfazLogin extends javax.swing.JFrame
     }//GEN-LAST:event_jPContrasenaActionPerformed
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-        String contraseña;
-        contraseña = String.valueOf(jPContrasena.getPassword());
-        String usuario;
-        usuario = txtUsuario.getText();
-        if(usuario.equals("DARWIN") && contraseña.equals("1234")) 
+        gestionLogin.getEmpleado().setUser_Empleado(txtUsuario.getText());
+        gestionLogin.getEmpleado().setClave_Empleado(jPContrasena.getText());
+        try
         {
-            JOptionPane.showMessageDialog(null,"Bienvenido al Sistema ADMINISTRADOR");
-            iniciarCarga();
-            iniciarSplash();
+            gestionLogin.Login();            
+            JOptionPane.showMessageDialog(null, "logueo correcto"); 
+            InterfazMenu menu = new InterfazMenu();            
+            //JOptionPane.showMessageDialog(null,"Está accediendo al Menú Principal");
+            menu.setVisible(true);
+            dispose();
+            PasarDeNegocioAInterfaz();
+        }
+        catch(SQLException ex)
+        {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+//        String contraseña;
+//        contraseña = String.valueOf(jPContrasena.getPassword());
+//        String usuario;
+//        usuario = txtUsuario.getText();
+//        if(usuario.equals("DARWIN") && contraseña.equals("1234")) 
+//        {
+//            JOptionPane.showMessageDialog(null,"Bienvenido al Sistema ADMINISTRADOR");
+//            iniciarCarga();
+//            iniciarSplash();
             //JOptionPane.showMessageDialog(null,"Está accediendo al Menú Principal");
 //        if (Progreso.getValue()== 100) 
 //        {
@@ -256,19 +281,19 @@ public class InterfazLogin extends javax.swing.JFrame
 //            logearse.setVisible(true);
 //            this.dispose();
         //}            
-        }
-        else if(!"DARWIN".equals(usuario))
-        {            
-            JOptionPane.showMessageDialog(null,"Usuario Incorrecto");
-            txtUsuario.setText("");
-            txtUsuario.requestFocusInWindow();
-         }
-        else if(!"1234".equals(contraseña))
-        {
-            JOptionPane.showMessageDialog(null,"Contraseña Incorrecta");
-            jPContrasena.setText("");
-            jPContrasena.requestFocusInWindow();
-        }
+//        }
+//        else if(!"DARWIN".equals(usuario))
+//        {            
+//            JOptionPane.showMessageDialog(null,"Usuario Incorrecto");
+//            txtUsuario.setText("");
+//            txtUsuario.requestFocusInWindow();
+//         }
+//        else if(!"1234".equals(contraseña))
+//        {
+//            JOptionPane.showMessageDialog(null,"Contraseña Incorrecta");
+//            jPContrasena.setText("");
+//            jPContrasena.requestFocusInWindow();
+//        }
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void btnIngresarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnIngresarKeyPressed

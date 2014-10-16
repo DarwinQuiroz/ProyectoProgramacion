@@ -371,6 +371,11 @@ public class InterfazEmpleado extends javax.swing.JFrame
         btnVolver.setIconTextGap(2);
         btnVolver.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         btnVolver.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -521,6 +526,12 @@ public class InterfazEmpleado extends javax.swing.JFrame
         }
         PasarDeNegocioAInterfaz();
     }//GEN-LAST:event_btnNuevoActionPerformed
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        InterfazMenu IrMenu = new InterfazMenu();
+        IrMenu.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnVolverActionPerformed
 
     /**
      * @param args the command line arguments
