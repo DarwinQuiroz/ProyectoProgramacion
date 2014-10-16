@@ -52,7 +52,9 @@ public class Conexion
     
     public void CadenaConexion()
     {
-        Conexion.setCadena("jdbc:sqlserver://localhost:1433;databaseName=Reportes");
+        //cadena conexion oracle
+        //jdbc:oracle:thin:@localhost:1521:Intercompu
+        Conexion.setCadena("jdbc:sqlserver://localhost:1433;databaseName=Intercompu");
         Conexion.setUsuario("sa");
         Conexion.setClave("123");  
     }

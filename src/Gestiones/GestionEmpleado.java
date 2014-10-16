@@ -58,7 +58,8 @@ public class GestionEmpleado implements IGestion
         try
         {
             Conexion.GetInstancia().Conectar();
-            Conexion.GetInstancia().Ejecutar("UPDATE [dbo].[Empleado] SET [Nom_Empleado] = '"+ObEmpleado.getNom_Persona()+"',[Dir_Empleado] = '"+ObEmpleado.getDir_Persona()+"',[Tel_Empleado] = '"+ObEmpleado.getTel_Persona()+"',[Ape_Empleado] = '"+ObEmpleado.getApe_Persona()+"',[Email_Empleado] = '"+ObEmpleado.getEmail_Persona()+"',[Tip_Empleado] = '"+ObEmpleado.getTip_Empleado()+"',[User_Empleado] = '"+ObEmpleado.getUser_Empleado()+"',[Clave_Empleado] = '"+ObEmpleado.getClave_Empleado()+"',[NHT_Empleado] = '"+ObEmpleado.getNHT_Empledo()+"',[NHE_Empleado] = '"+ObEmpleado.getNHE_Empleado()+"',[VPH_Empleado] = '"+ObEmpleado.getVPH_Empleado()+"' WHERE ="+ObEmpleado.getCedRuc_persona());
+            Conexion.GetInstancia().Ejecutar("UPDATE [dbo].[Empleado] SET [Nom_Empleado] = '"+ObEmpleado.getNom_Persona()+"',[Dir_Empleado] = '"+ObEmpleado.getDir_Persona()+"',[Tel_Empleado] = '"+ObEmpleado.getTel_Persona()+"',[Ape_Empleado] = '"+ObEmpleado.getApe_Persona()+"',[Email_Empleado] = '"+ObEmpleado.getEmail_Persona()+"',[Tip_Empleado] = '"+ObEmpleado.getTip_Empleado()+"',[User_Empleado] = '"+ObEmpleado.getUser_Empleado()+"',[Clave_Empleado] = '"+ObEmpleado.getClave_Empleado()+"',"
+            + "[NHT_Empleado] = '"+ObEmpleado.getNHT_Empledo()+"',[NHE_Empleado] = '"+ObEmpleado.getNHE_Empleado()+"',[VPH_Empleado] = '"+ObEmpleado.getVPH_Empleado()+"' WHERE ='"+ObEmpleado.getCedRuc_persona()+"'");
         }
         catch(SQLException ex)
         {
@@ -67,8 +68,7 @@ public class GestionEmpleado implements IGestion
         finally
         {
             Conexion.GetInstancia().Desconectar();
-        }
-                
+        }                
     }
 
     @Override
@@ -112,7 +112,7 @@ public class GestionEmpleado implements IGestion
         try
         {
             Conexion.GetInstancia().Conectar();
-            ResultSet rs = Conexion.GetInstancia().EjecutarConsulta("SELECT [Nom_Empleado],[Dir_Empleado],[Tel_Empleado],[Ape_Empleado],[Email_Empleado],[Tip_Empleado],[NHT_Empleado],[NHE_Empleado],[VPH_Empleado] FROM [dbo].[Empleado] WHERE ="+ObEmpleado.getCedRuc_persona());
+            ResultSet rs = Conexion.GetInstancia().EjecutarConsulta("SELECT [Nom_Empleado],[Dir_Empleado],[Tel_Empleado],[Ape_Empleado],[Email_Empleado],[Tip_Empleado],[NHT_Empleado],[NHE_Empleado],[VPH_Empleado] FROM [dbo].[Empleado] WHERE ='"+ObEmpleado.getCedRuc_persona()+"'");
             while(rs.next())
             {
                 ObEmpleado.setNom_Persona(rs.getString("Nom_Empleado"));
