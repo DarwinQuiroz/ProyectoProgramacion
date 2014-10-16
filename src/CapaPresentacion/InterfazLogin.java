@@ -17,8 +17,8 @@ public class InterfazLogin extends javax.swing.JFrame
     GestionLogin gestionLogin = new GestionLogin();
     public void PasarDeNegocioAInterfaz()
     {
-//        txtUsuario.setText(gestionLogin.getUser_Empleado());
-//        jPContrasena.setText(gestionLogin.getEmpleado().getClave_Empleado());
+        txtUsuario.setText(gestionLogin.getEmpleado().getUser_Empleado());
+        jPContrasena.setText(gestionLogin.getEmpleado().getClave_Empleado());
     }
     
     public InterfazLogin() 
@@ -244,13 +244,14 @@ public class InterfazLogin extends javax.swing.JFrame
         gestionLogin.getEmpleado().setClave_Empleado(jPContrasena.getText());
         try
         {
-            gestionLogin.Login();            
+            gestionLogin.Login();  
+            PasarDeNegocioAInterfaz();
             JOptionPane.showMessageDialog(null, "logueo correcto"); 
             InterfazMenu menu = new InterfazMenu();            
             //JOptionPane.showMessageDialog(null,"Está accediendo al Menú Principal");
             menu.setVisible(true);
             dispose();
-            PasarDeNegocioAInterfaz();
+            
         }
         catch(SQLException ex)
         {
