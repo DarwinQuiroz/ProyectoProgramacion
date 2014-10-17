@@ -19,6 +19,8 @@ public class InterfazEmpleado extends javax.swing.JFrame
         //this.setLocationRelativeTo(null);
         txtCedRuc.requestFocus();
         txtUsuario.setDocument(new Validaciones());
+        txtNombre.setDocument(new Validaciones());
+        
     }
     
     GestionEmpleado gestionEmpleado = new GestionEmpleado();
@@ -26,7 +28,7 @@ public class InterfazEmpleado extends javax.swing.JFrame
     public  void PasarDeInterfazANegocio()
     {
         // guardar .eliminar , modifica
-        gestionEmpleado.getEmpleado().setCedRuc_persona(Integer.parseInt(txtCedRuc.getText()));
+        gestionEmpleado.getEmpleado().setCedRuc_Persona(Integer.parseInt(txtCedRuc.getText()));
         gestionEmpleado.getEmpleado().setNom_Persona(txtNombre.getText());
         gestionEmpleado.getEmpleado().setDir_Persona(txtDireccion.getText());
         gestionEmpleado.getEmpleado().setTel_Persona(txtTelefono.getText());
@@ -43,7 +45,7 @@ public class InterfazEmpleado extends javax.swing.JFrame
     public void PasarDeNegocioAInterfaz()
     {
         // nuevo ,listar
-        txtCedRuc.setText(Integer.toString(gestionEmpleado.getEmpleado().getCedRuc_persona()));
+        txtCedRuc.setText(Integer.toString(gestionEmpleado.getEmpleado().getCedRuc_Persona()));
         txtNombre.setText(gestionEmpleado.getEmpleado().getNom_Persona());
         txtDireccion.setText(gestionEmpleado.getEmpleado().getDir_Persona());
         txtTelefono.setText(gestionEmpleado.getEmpleado().getTel_Persona());
@@ -104,10 +106,11 @@ public class InterfazEmpleado extends javax.swing.JFrame
         jLabel1.setFont(new java.awt.Font("Garamond", 1, 24)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/personal.png"))); // NOI18N
         jLabel1.setText("REGISTRO DE PERSONAL");
+        jLabel1.setName(""); // NOI18N
 
         jpFondo.setBackground(new java.awt.Color(70, 99, 138));
 
-        jpIngresoDatos.setBorder(javax.swing.BorderFactory.createTitledBorder("Igresar Datos de Empleado"));
+        jpIngresoDatos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Igresar Datos de Empleado", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Garamond", 1, 11), new java.awt.Color(204, 0, 0))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Garamond", 1, 14)); // NOI18N
         jLabel2.setText("Cédula o RUC:");
@@ -137,8 +140,18 @@ public class InterfazEmpleado extends javax.swing.JFrame
         jLabel12.setText("Número de Horas Extras:");
 
         txtCedRuc.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+        txtCedRuc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCedRucKeyPressed(evt);
+            }
+        });
 
         txtNombre.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
 
         txtDireccion.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
 
@@ -154,33 +167,50 @@ public class InterfazEmpleado extends javax.swing.JFrame
         txtTipoEmp.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
 
         txtNHT.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+        txtNHT.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNHTKeyPressed(evt);
+            }
+        });
 
         txtNHE.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+        txtNHE.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNHEKeyPressed(evt);
+            }
+        });
 
         txtVPH.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+        txtVPH.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtVPHKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpIngresoDatosLayout = new javax.swing.GroupLayout(jpIngresoDatos);
         jpIngresoDatos.setLayout(jpIngresoDatosLayout);
         jpIngresoDatosLayout.setHorizontalGroup(
             jpIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpIngresoDatosLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
                 .addGroup(jpIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpIngresoDatosLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
                         .addGroup(jpIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
                             .addComponent(jLabel7)
                             .addComponent(jLabel8)
                             .addComponent(jLabel11)
                             .addComponent(jLabel12)
-                            .addComponent(jLabel13))
-                        .addGap(18, 18, 18))
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel2)))
                     .addGroup(jpIngresoDatosLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addContainerGap()
+                        .addComponent(jLabel4))
+                    .addGroup(jpIngresoDatosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3)))
+                .addGap(18, 18, 18)
                 .addGroup(jpIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtDireccion, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jpIngresoDatosLayout.createSequentialGroup()
@@ -205,14 +235,13 @@ public class InterfazEmpleado extends javax.swing.JFrame
                 .addGroup(jpIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCedRuc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jpIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
                 .addGroup(jpIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpIngresoDatosLayout.createSequentialGroup()
-                        .addGap(9, 9, 9)
+                    .addGroup(jpIngresoDatosLayout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -229,9 +258,8 @@ public class InterfazEmpleado extends javax.swing.JFrame
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpIngresoDatosLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
                         .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtApe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -248,7 +276,7 @@ public class InterfazEmpleado extends javax.swing.JFrame
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Crear Usuario y Contraseña"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Crear Usuario y Contraseña", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Garamond", 1, 11), new java.awt.Color(204, 0, 0))); // NOI18N
 
         jLabel9.setFont(new java.awt.Font("Garamond", 1, 14)); // NOI18N
         jLabel9.setText("Nombre de Usuario:");
@@ -291,7 +319,7 @@ public class InterfazEmpleado extends javax.swing.JFrame
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Acciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Garamond", 0, 11))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Garamond", 0, 11))); // NOI18N
 
         btnGrabar.setFont(new java.awt.Font("Garamond", 0, 12)); // NOI18N
         btnGrabar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Save.png"))); // NOI18N
@@ -406,7 +434,7 @@ public class InterfazEmpleado extends javax.swing.JFrame
                 .addGap(18, 18, 18)
                 .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnVolver)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -428,7 +456,7 @@ public class InterfazEmpleado extends javax.swing.JFrame
             .addGroup(jpFondoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jpFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jpFondoLayout.createSequentialGroup()
                         .addComponent(jpIngresoDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -476,7 +504,7 @@ public class InterfazEmpleado extends javax.swing.JFrame
     }//GEN-LAST:event_btnGrabarActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        gestionEmpleado.getEmpleado().setCedRuc_persona(Integer.parseInt(txtCedRuc.getText()));
+        gestionEmpleado.getEmpleado().setCedRuc_Persona(Integer.parseInt(txtCedRuc.getText()));
         try
         {
             gestionEmpleado.Consultar();
@@ -532,6 +560,31 @@ public class InterfazEmpleado extends javax.swing.JFrame
         IrMenu.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void txtCedRucKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedRucKeyPressed
+        Validaciones.SoloNumeros(txtCedRuc);
+        Validaciones.CantidadCaracteres(txtCedRuc, 13);
+    }//GEN-LAST:event_txtCedRucKeyPressed
+
+    private void txtNHTKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNHTKeyPressed
+        Validaciones.SoloNumeros(txtNHT);
+        Validaciones.CantidadCaracteres(txtNHT, 3);
+    }//GEN-LAST:event_txtNHTKeyPressed
+
+    private void txtNHEKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNHEKeyPressed
+        Validaciones.SoloNumeros(txtNHE);
+        Validaciones.CantidadCaracteres(txtNHE, 3);
+    }//GEN-LAST:event_txtNHEKeyPressed
+
+    private void txtVPHKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtVPHKeyPressed
+        Validaciones.soloDecimales(txtVPH);
+        Validaciones.CantidadCaracteres(txtVPH, 7);
+    }//GEN-LAST:event_txtVPHKeyPressed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        Validaciones.SoloLetras(txtNombre);
+        Validaciones.CantidadCaracteres(txtNombre, 20);
+    }//GEN-LAST:event_txtNombreActionPerformed
 
     /**
      * @param args the command line arguments

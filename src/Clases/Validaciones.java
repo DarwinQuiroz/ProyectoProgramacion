@@ -76,4 +76,30 @@ public class Validaciones extends PlainDocument
             }
         });
     }
+    
+    public static void soloDecimales(JTextField Texto)
+    {
+        Texto.addKeyListener(new KeyAdapter() 
+        {
+            @Override
+            public void keyTyped(KeyEvent e)
+            {
+                char c = e.getKeyChar();
+                if(!Character.isDigit(c) && Character.isLetter(c))
+                {
+                    e.consume();
+                    Toolkit.getDefaultToolkit().beep();
+                }
+            }
+        });
+    }
+    
+    public static boolean estaVacio(JTextField Texto)
+    {
+        boolean valor = false;        
+        String val = Texto.getText().trim();
+        if(val.isEmpty()) valor = false;
+        else valor =  true;
+        return valor;
+    }
 }

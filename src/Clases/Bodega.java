@@ -11,7 +11,6 @@ package Clases;
  */
 public class Bodega 
 {
-
     public Bodega(int Id_Bodega, Sucursal Id_Sucursal, String Cod_Bodega, String Nom_Bodega, String Des_Bodega, int Ext_Bodega) 
     {
         this.Id_Bodega = Id_Bodega;

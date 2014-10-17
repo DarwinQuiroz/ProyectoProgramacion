@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Gestiones;
 
 import CapaDatos.Conexion;
@@ -38,7 +33,7 @@ public class GestionCliente implements IGestion
         try
         {
             Conexion.GetInstancia().Conectar();
-            Conexion.GetInstancia().Ejecutar("");
+            Conexion.GetInstancia().Ejecutar("INSERT INTO Cliente(CedRuc_Cliente,Nom_Cliente,Dir_Cliente,Tel_Cliente,Ape_Cliente,Email_Cliente,Tip_Cliente,SalPen_Cliente)VALUES('"+ObCliente.getCedRuc_Persona()+"','"+ObCliente.getNom_Persona()+"','"+ObCliente.getDir_Persona()+"','"+ObCliente.getTel_Persona()+"','"+ObCliente.getApe_Persona()+"','"+ObCliente.getEmail_Persona()+"','"+ObCliente.getTip_Cliente()+"','"+ObCliente.getSalPen_Cliente()+"')");
         }
         catch(SQLException ex)
         {
@@ -56,7 +51,7 @@ public class GestionCliente implements IGestion
         try
         {
             Conexion.GetInstancia().Conectar();
-            Conexion.GetInstancia().Ejecutar("");
+            Conexion.GetInstancia().Ejecutar("UPDATE Cliente SET Nom_Cliente = '"+ObCliente.getNom_Persona()+"',Dir_Cliente = '"+ObCliente.getDir_Persona()+"',Tel_Cliente = '"+ObCliente.getTel_Persona()+"',Ape_Cliente = '"+ObCliente.getApe_Persona()+"',Email_Cliente = '"+ObCliente.getEmail_Persona()+"',Tip_Cliente = '"+ObCliente.getTip_Cliente()+"',SalPen_Cliente= '"+ObCliente.getSalPen_Cliente()+"' WHERE CedRuc_Cliente="+ObCliente.getCedRuc_Persona());
         }
         catch(SQLException ex)
         {
@@ -70,16 +65,16 @@ public class GestionCliente implements IGestion
 
     @Override
     public void Nuevo() throws SQLException 
-    {
-        ObCliente.setTip_Cliente(null);
-        ObCliente.setSalPen_Cliente(00.00);
-        ObCliente.setId_persona(00);
-        ObCliente.setCedRuc_persona(000000000);
+    {        
+        //ObCliente.setId_Persona(00);
+        ObCliente.setCedRuc_Persona(000000000);
         ObCliente.setNom_Persona(null);
         ObCliente.setDir_Persona(null);
         ObCliente.setTel_Persona(null);
         ObCliente.setApe_Persona(null);
         ObCliente.setEmail_Persona(null);
+        ObCliente.setTip_Cliente(null);
+        ObCliente.setSalPen_Cliente(00.00);
     }
 
     @Override
@@ -88,7 +83,7 @@ public class GestionCliente implements IGestion
         try
         {
             Conexion.GetInstancia().Conectar();
-            Conexion.GetInstancia().Ejecutar("");
+            Conexion.GetInstancia().Ejecutar("DELETE FROM Cliente WHERE CedRuc_Cliente ="+ObCliente.getCedRuc_Persona());
         }
         catch(SQLException ex)
         {
@@ -106,9 +101,16 @@ public class GestionCliente implements IGestion
         try
         {
             Conexion.GetInstancia().Conectar();
-            ResultSet rs = Conexion.GetInstancia().EjecutarConsulta("");
+            ResultSet rs = Conexion.GetInstancia().EjecutarConsulta("SELECT Nom_Cliente,Dir_Cliente,Tel_Cliente,Ape_Cliente ,Email_Cliente,Tip_Cliente,SalPen_Cliente FROM Cliente WHERE CedRuc_Cliente ='"+ObCliente.getCedRuc_Persona()+"'");
             while(rs.next())
             {
+                ObCliente.setNom_Persona(rs.getString("Nom_Cliente"));
+                ObCliente.setDir_Persona(rs.getString("Dir_Cliente"));
+                ObCliente.setTel_Persona(rs.getString("Tel_Cliente"));
+                ObCliente.setApe_Persona(rs.getString("Ape_Cliente"));
+                ObCliente.setEmail_Persona(rs.getString("Email_Cliente"));
+                ObCliente.setTip_Cliente(rs.getString("Tip_Cliente"));
+                ObCliente.setSalPen_Cliente(rs.getDouble("SalPen_Cliente"));
             }
         }
         catch(SQLException ex)

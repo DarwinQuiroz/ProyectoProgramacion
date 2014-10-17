@@ -14,8 +14,8 @@ public class Persona
 
     public Persona(int CedRuc_persona, String Nom_Persona, String Dir_Persona, String Tel_Persona, String Ape_Persona, String Email_Persona) 
     {
-        this.Id_persona = Id_persona;
-        this.CedRuc_persona = CedRuc_persona;
+        this.Id_Persona = Id_Persona;
+        this.CedRuc_Persona = CedRuc_persona;
         this.Nom_Persona = Nom_Persona;
         this.Dir_Persona = Dir_Persona;
         this.Tel_Persona = Tel_Persona;
@@ -23,48 +23,48 @@ public class Persona
         this.Email_Persona = Email_Persona;
     }
    
-    private int Id_persona;
+    private int Id_Persona;
 
     /**
-     * Get the value of Id_persona
+     * Get the value of Id_Persona
      *
-     * @return the value of Id_persona
+     * @return the value of Id_Persona
      */
-    public int getId_persona() 
+    public int getId_Persona() 
     {
-        return Id_persona;
+        return Id_Persona;
     }
 
     /**
-     * Set the value of Id_persona
+     * Set the value of Id_Persona
      *
-     * @param Id_persona new value of Id_persona
+     * @param Id_Persona new value of Id_Persona
      */
-    public void setId_persona(int Id_persona) 
+    public void setId_Persona(int Id_Persona) 
     {
-        this.Id_persona = Id_persona;
+        this.Id_Persona = Id_Persona;
     }
  
-    private int CedRuc_persona;
+    private int CedRuc_Persona;
 
     /**
-     * Get the value of CedRuc_persona
+     * Get the value of CedRuc_Persona
      *
-     * @return the value of CedRuc_persona
+     * @return the value of CedRuc_Persona
      */
-    public int getCedRuc_persona()
+    public int getCedRuc_Persona()
     {
-        return CedRuc_persona;
+        return CedRuc_Persona;
     }
 
     /**
-     * Set the value of CedRuc_persona
+     * Set the value of CedRuc_Persona
      *
-     * @param CedRuc_persona new value of CedRuc_persona
+     * @param CedRuc_Persona new value of CedRuc_Persona
      */
-    public void setCedRuc_persona(int CedRuc_persona) 
+    public void setCedRuc_Persona(int CedRuc_Persona) 
     {
-        this.CedRuc_persona = CedRuc_persona;
+        this.CedRuc_Persona = CedRuc_Persona;
     }
 
     private String Nom_Persona;
