@@ -28,6 +28,20 @@ public class GestionCliente implements IGestion
     }
     
     @Override
+    public void Nuevo() throws SQLException 
+    {        
+        //ObCliente.setId_Persona(00);
+        ObCliente.setCedRuc_Persona(000000000);
+        ObCliente.setNom_Persona(null);
+        ObCliente.setApe_Persona(null);
+        ObCliente.setDir_Persona(null);
+        ObCliente.setTel_Persona(null);
+        ObCliente.setEmail_Persona(null);
+        ObCliente.setTip_Cliente(null);
+        ObCliente.setSalPen_Cliente(00.00);
+    }
+    
+    @Override
     public void Grabar() throws SQLException 
     {
         try
@@ -61,21 +75,7 @@ public class GestionCliente implements IGestion
         {
             Conexion.GetInstancia().Desconectar();
         }
-    }
-
-    @Override
-    public void Nuevo() throws SQLException 
-    {        
-        //ObCliente.setId_Persona(00);
-        ObCliente.setCedRuc_Persona(000000000);
-        ObCliente.setNom_Persona(null);
-        ObCliente.setDir_Persona(null);
-        ObCliente.setTel_Persona(null);
-        ObCliente.setApe_Persona(null);
-        ObCliente.setEmail_Persona(null);
-        ObCliente.setTip_Cliente(null);
-        ObCliente.setSalPen_Cliente(00.00);
-    }
+    }    
 
     @Override
     public void Eliminar() throws SQLException 

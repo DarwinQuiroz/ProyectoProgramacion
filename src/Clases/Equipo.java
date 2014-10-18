@@ -10,17 +10,17 @@ package Clases;
  * @author Darwin
  */
 public class Equipo 
-{
+{   
 
-    public Equipo(int Id_Equipo, LaboratorioTecnico Id_Laboratorio, String Serie_Equipo, String Nom_Equipo, String Des_Equipo, int NumRep_Equipo, double Val_Equipo) 
+    public Equipo(int Id_Equipo, LaboratorioTecnico Id_Laboratorio, String Nom_Equipo, String Des_Equipo, int NumRep_Equipo, double Val_Equipo, String Estado_Equipo) 
     {
         this.Id_Equipo = Id_Equipo;
         this.Id_Laboratorio = Id_Laboratorio;
-        this.Serie_Equipo = Serie_Equipo;
         this.Nom_Equipo = Nom_Equipo;
         this.Des_Equipo = Des_Equipo;
         this.NumRep_Equipo = NumRep_Equipo;
         this.Val_Equipo = Val_Equipo;
+        this.Estado_Equipo = Estado_Equipo;
     }
     
     private int Id_Equipo;
@@ -65,29 +65,7 @@ public class Equipo
     public void setId_Laboratorio(LaboratorioTecnico Id_Laboratorio) 
     {
         this.Id_Laboratorio = Id_Laboratorio;
-    }
-
-    private String Serie_Equipo;
-
-    /**
-     * Get the value of Serie_Equipo
-     *
-     * @return the value of Serie_Equipo
-     */
-    public String getSerie_Equipo() 
-    {
-        return Serie_Equipo;
-    }
-
-    /**
-     * Set the value of Serie_Equipo
-     *
-     * @param Serie_Equipo new value of Serie_Equipo
-     */
-    public void setSerie_Equipo(String Serie_Equipo)
-    {
-        this.Serie_Equipo = Serie_Equipo;
-    }
+    }    
 
     private String Nom_Equipo;
 
@@ -176,4 +154,27 @@ public class Equipo
     {
         this.Val_Equipo = Val_Equipo;
     }
+    
+        private String Estado_Equipo;
+
+    /**
+     * Get the value of Estado_Equipo
+     *
+     * @return the value of Estado_Equipo
+     */
+    public String getEstado_Equipo() 
+    {
+        return Estado_Equipo;
+    }
+
+    /**
+     * Set the value of Estado_Equipo
+     *
+     * @param Estado_Equipo new value of Estado_Equipo
+     */
+    public void setEstado_Equipo(String Estado_Equipo)
+    {
+        this.Estado_Equipo = Estado_Equipo;
+    }
+
 }

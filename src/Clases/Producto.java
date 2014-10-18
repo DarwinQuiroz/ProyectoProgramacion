@@ -5,15 +5,43 @@
  */
 package Clases;
 
+import java.util.List;
+import org.omg.CORBA.portable.ApplicationException;
+
 /**
  *
  * @author Darwin
  */
 public class Producto 
-{  
+{ 
+
+    public Producto(List<ProductoBodega> ProductoBodega, int Id_Producto, Bodega Id_Bodega, Proveedor Id_Proveedor, Descuento Id_Descuento, String Nom_Producto, String Des_Producto, String Est_Producto, String Stock_Producto, double PVP_Producto, String Mar_Producto, String Tam_Producto) 
+    {
+        this.ProductoBodega = ProductoBodega;
+        this.Id_Producto = Id_Producto;
+        this.Id_Bodega = Id_Bodega;
+        this.Id_Proveedor = Id_Proveedor;
+        this.Id_Descuento = Id_Descuento;
+        this.Nom_Producto = Nom_Producto;
+        this.Des_Producto = Des_Producto;
+        this.Est_Producto = Est_Producto;
+        this.Stock_Producto = Stock_Producto;
+        this.PVP_Producto = PVP_Producto;
+        this.Mar_Producto = Mar_Producto;
+        this.Tam_Producto = Tam_Producto;
+    }    
+    private List<ProductoBodega> ProductoBodega;
+    
+    public List<ProductoBodega> getProductoBodega() 
+    {
+        return ProductoBodega;
+    }    
+    public void setProductoBodega(List<ProductoBodega> ProductoBodega) 
+    {        
+        this.ProductoBodega = ProductoBodega;
+    }
     
     private int Id_Producto;
-
     /**
      * Get the value of Id_Producto
      *
@@ -99,29 +127,8 @@ public class Producto
     {
         this.Id_Descuento = Id_Descuento;
     }
-
-    private String Serie_Producto;
-
-    /**
-     * Get the value of Serie_Producto
-     *
-     * @return the value of Serie_Producto
-     */
-    public String getSerie_Producto() 
-    {
-        return Serie_Producto;
-    }
-
-    /**
-     * Set the value of Serie_Producto
-     *
-     * @param Serie_Producto new value of Serie_Producto
-     */
-    public void setSerie_Producto(String Serie_Producto)
-    {
-        this.Serie_Producto = Serie_Producto;
-    }
-
+    
+    
     private String Nom_Producto;
 
     /**

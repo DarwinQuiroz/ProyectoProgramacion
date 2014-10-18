@@ -5,24 +5,37 @@
  */
 package Clases;
 
+import java.util.List;
+
 /**
  *
  * @author Darwin
  */
 public class Bodega 
 {
-    public Bodega(int Id_Bodega, Sucursal Id_Sucursal, String Cod_Bodega, String Nom_Bodega, String Des_Bodega, int Ext_Bodega) 
+    public Bodega(List<ProductoBodega> ProductoBodega, int Id_Bodega, Sucursal Id_Sucursal, String Cod_Bodega, String Nom_Bodega, String Des_Bodega, int Ext_Bodega) 
     {
+        this.ProductoBodega = ProductoBodega;
         this.Id_Bodega = Id_Bodega;
         this.Id_Sucursal = Id_Sucursal;
         this.Cod_Bodega = Cod_Bodega;
         this.Nom_Bodega = Nom_Bodega;
         this.Des_Bodega = Des_Bodega;
         this.Ext_Bodega = Ext_Bodega;
-    }
+    }    
     
-    private int Id_Bodega;
+    private List<ProductoBodega> ProductoBodega;
 
+    public List<ProductoBodega> getProductoBodega() 
+    {
+        return ProductoBodega;
+    }    
+    public void setProductoBodega(List<ProductoBodega> ProductoBodega) 
+    {
+        this.ProductoBodega = ProductoBodega;
+    }
+
+    private int Id_Bodega;
     /**
      * Get the value of Id_Bodega
      *

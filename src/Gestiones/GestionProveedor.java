@@ -33,6 +33,23 @@ public class GestionProveedor implements IGestion
     }
     
     @Override
+    public void Nuevo() throws SQLException 
+    {
+        ObProveedor.setCedRuc_Persona(00000000000);
+        ObProveedor.setNom_Persona(null);
+        ObProveedor.setApe_Persona(null);
+        ObProveedor.setDirEmp_Proveedor(null);
+        ObProveedor.setTel_Persona(null);        
+        ObProveedor.setEmail_Persona(null);
+        ObProveedor.setEmp_Proveedor(null);
+        ObProveedor.setRucEmp_Proveedor(0000000000);
+        ObProveedor.setDirEmp_Proveedor(null);
+        ObProveedor.setTelEmp_Proveedor(null);
+        ObProveedor.setTip_Proveedor(null);
+        ObProveedor.setSalPen_Proveedor(000.00);
+    }
+    
+    @Override
     public void Grabar() throws SQLException 
     {
         try
@@ -66,24 +83,7 @@ public class GestionProveedor implements IGestion
         {
             Conexion.GetInstancia().Desconectar();
         }
-    }
-
-    @Override
-    public void Nuevo() throws SQLException 
-    {
-        ObProveedor.setCedRuc_Persona(00000000000);
-        ObProveedor.setNom_Persona(null);
-        ObProveedor.setDirEmp_Proveedor(null);
-        ObProveedor.setTel_Persona(null);
-        ObProveedor.setApe_Persona(null);
-        ObProveedor.setEmail_Persona(null);
-        ObProveedor.setEmp_Proveedor(null);
-        ObProveedor.setRucEmp_Proveedor(0000000000);
-        ObProveedor.setDirEmp_Proveedor(null);
-        ObProveedor.setTelEmp_Proveedor(null);
-        ObProveedor.setTip_Proveedor(null);
-        ObProveedor.setSalPen_Proveedor(000.00);
-    }
+    }    
 
     @Override
     public void Eliminar() throws SQLException

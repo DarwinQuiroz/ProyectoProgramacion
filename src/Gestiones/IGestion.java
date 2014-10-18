@@ -13,9 +13,9 @@ import java.sql.SQLException;
  */
 public interface IGestion 
 {
+    public void Nuevo() throws SQLException;
     public void Grabar () throws SQLException;
     public void Modificar() throws SQLException;
-    public void Nuevo() throws SQLException;
     public void Eliminar() throws SQLException;
     public void Consultar() throws SQLException; 
 }

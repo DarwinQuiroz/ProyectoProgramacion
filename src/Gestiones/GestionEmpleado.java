@@ -32,6 +32,22 @@ public class GestionEmpleado implements IGestion
         this.ObEmpleado = empleado;
     }  
     
+    @Override
+    public void Nuevo() throws SQLException 
+    {
+        ObEmpleado.setCedRuc_Persona(0000000000);
+        ObEmpleado.setNom_Persona(null);
+        ObEmpleado.setDir_Persona(null);
+        ObEmpleado.setTel_Persona(null);
+        ObEmpleado.setApe_Persona(null);
+        ObEmpleado.setEmail_Persona(null);
+        ObEmpleado.setTip_Empleado(null);
+        ObEmpleado.setUser_Empleado(null);
+        ObEmpleado.setClave_Empleado(null);
+        ObEmpleado.setNHT_Empledo(0);
+        ObEmpleado.setNHE_Empleado(0);
+        ObEmpleado.setVPH_Empleado(00.00);
+    }
     
     @Override
     public void Grabar() throws SQLException 
@@ -69,23 +85,6 @@ public class GestionEmpleado implements IGestion
         {
             Conexion.GetInstancia().Desconectar();
         }                
-    }
-
-    @Override
-    public void Nuevo() throws SQLException 
-    {
-        ObEmpleado.setCedRuc_Persona(0000000000);
-        ObEmpleado.setNom_Persona(null);
-        ObEmpleado.setDir_Persona(null);
-        ObEmpleado.setTel_Persona(null);
-        ObEmpleado.setApe_Persona(null);
-        ObEmpleado.setEmail_Persona(null);
-        ObEmpleado.setTip_Empleado(null);
-        ObEmpleado.setUser_Empleado(null);
-        ObEmpleado.setClave_Empleado(null);
-        ObEmpleado.setNHT_Empledo(0);
-        ObEmpleado.setNHE_Empleado(0);
-        ObEmpleado.setVPH_Empleado(00.00);
     }
 
     @Override
