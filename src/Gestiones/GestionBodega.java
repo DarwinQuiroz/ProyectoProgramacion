@@ -51,7 +51,7 @@ public class GestionBodega implements IGestion
         try
         {
             Conexion.GetInstancia().Conectar();
-            Conexion.GetInstancia().Ejecutar("");
+            Conexion.GetInstancia().Ejecutar("INSERT INTO Bodega (Id_Sucursal,Cod_Bodega,Nom_Bodega,Des_Bodega,Ext_Bodega)VALUES('"+ObBodega.getId_Sucursal()+"','"+ObBodega.getCod_Bodega()+"','"+ObBodega.getNom_Bodega()+"','"+ObBodega.getDes_Bodega()+"','"+ObBodega.getExt_Bodega()+"')");
         }
         catch(SQLException ex)
         {

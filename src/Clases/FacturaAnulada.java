@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public class FacturaAnulada 
 {
-    public FacturaAnulada(int Id_Anulacion, DetalleFactura Id_Factura, Empleado Id_Empleado, Producto Id_Producto, Date Fecha_Anulacion, String Des_Anulacion, int CanPro_Anulacion, double ValPro_Anulacion, double ValT_Anulacion) 
+    public FacturaAnulada(int Id_Anulacion, CabeceraFactura Id_Factura, Empleado Id_Empleado, Producto Id_Producto, Date Fecha_Anulacion, String Des_Anulacion, int CanPro_Anulacion, double ValPro_Anulacion, double ValT_Anulacion) 
     {
         this.Id_Anulacion = Id_Anulacion;
         this.Id_Factura = Id_Factura;
@@ -25,6 +25,7 @@ public class FacturaAnulada
         this.ValPro_Anulacion = ValPro_Anulacion;
         this.ValT_Anulacion = ValT_Anulacion;
     }
+    
     
     private int Id_Anulacion;
 
@@ -48,14 +49,14 @@ public class FacturaAnulada
         this.Id_Anulacion = Id_Anulacion;
     }
 
-    private DetalleFactura Id_Factura;
+        private CabeceraFactura Id_Factura;
 
     /**
      * Get the value of Id_Factura
      *
      * @return the value of Id_Factura
      */
-    public DetalleFactura getId_Factura() 
+    public CabeceraFactura getId_Factura() 
     {
         return Id_Factura;
     }
@@ -65,10 +66,11 @@ public class FacturaAnulada
      *
      * @param Id_Factura new value of Id_Factura
      */
-    public void setId_Factura(DetalleFactura Id_Factura) 
+    public void setId_Factura(CabeceraFactura Id_Factura)
     {
         this.Id_Factura = Id_Factura;
     }
+
 
     private Empleado Id_Empleado;
 
