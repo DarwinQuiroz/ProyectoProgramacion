@@ -7,6 +7,7 @@ package Gestiones;
 
 import CapaDatos.Conexion;
 import Clases.Bodega;
+import Clases.Sucursal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -69,7 +70,7 @@ public class GestionBodega implements IGestion
      try
         {
             Conexion.GetInstancia().Conectar();
-            Conexion.GetInstancia().Ejecutar("");
+            Conexion.GetInstancia().Ejecutar("UPDATE Bodega SET Nom_Bodega = '"+ObBodega.getNom_Bodega()+"',Des_Bodega = '"+ObBodega.getDes_Bodega()+"',Ext_Bodega = '"+ObBodega.getExt_Bodega()+"' WHERE Cod_Bodega ="+ObBodega.getCod_Bodega());
         }
         catch(SQLException ex)
         {
@@ -87,7 +88,7 @@ public class GestionBodega implements IGestion
         try
         {
             Conexion.GetInstancia().Conectar();
-            Conexion.GetInstancia().Ejecutar("");
+            Conexion.GetInstancia().Ejecutar("DELETE FROM Bodega WHERE Cod_Bodega ="+ObBodega.getCod_Bodega());
         }
         catch(SQLException ex)
         {
@@ -105,11 +106,11 @@ public class GestionBodega implements IGestion
         try
         {
             Conexion.GetInstancia().Conectar();
-            ResultSet rs = Conexion.GetInstancia().EjecutarConsulta("");
+            ResultSet rs = Conexion.GetInstancia().EjecutarConsulta("SELECT Id_Bodega,Id_Sucursal,Nom_Bodega,Des_Bodega,Ext_Bodega FROM Bodega WHERE Cod_Bodega ='"+ObBodega.getCod_Bodega()+"'");
             while(rs.next())
             {
                 ObBodega.setId_Bodega(rs.getInt(""));
-                //ObBodega.setId_Sucursal(rs.(""));
+                //ObBodega.setId_Sucursal(rs.gett);
                 ObBodega.setCod_Bodega(rs.getString(""));
                 ObBodega.setNom_Bodega(rs.getString(""));
                 ObBodega.setDes_Bodega(rs.getString(""));
