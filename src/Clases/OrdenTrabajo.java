@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public class OrdenTrabajo 
 {
-    public OrdenTrabajo(int Id_Orden, Cliente Id_Cliente, Equipo Id_Equipo, LaboratorioTecnico Id_Lab, int Id_Empleado, Date Fecha_Orden) 
+    public OrdenTrabajo(int Id_Orden, Cliente Id_Cliente, Equipo Id_Equipo, LaboratorioTecnico Id_Lab, int Id_Empleado, Date Fecha_Orden, int Cant_Orden, String DesEqui_Orden, Date FechEnt_Orden, double ValPag_Orden, Servicio Id_Servicio, double AbonoPag_Orden, Descuento Id_Descuento) 
     {
         this.Id_Orden = Id_Orden;
         this.Id_Cliente = Id_Cliente;
@@ -21,7 +21,15 @@ public class OrdenTrabajo
         this.Id_Lab = Id_Lab;
         this.Id_Empleado = Id_Empleado;
         this.Fecha_Orden = Fecha_Orden;
+        this.Cant_Orden = Cant_Orden;
+        this.DesEqui_Orden = DesEqui_Orden;
+        this.FechEnt_Orden = FechEnt_Orden;
+        this.ValPag_Orden = ValPag_Orden;
+        this.Id_Servicio = Id_Servicio;
+        this.AbonoPag_Orden = AbonoPag_Orden;
+        this.Id_Descuento = Id_Descuento;
     }
+    
     
     private int Id_Orden;
 

@@ -7,7 +7,6 @@ package Gestiones;
 
 import CapaDatos.Conexion;
 import Clases.Bodega;
-import Clases.Sucursal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
