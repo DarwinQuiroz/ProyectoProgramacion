@@ -7,6 +7,7 @@ package Gestiones;
 
 import CapaDatos.Conexion;
 import Clases.Sucursal;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -62,18 +63,65 @@ public class GestionSucursal implements IGestion
     }
 
     @Override
-    public void Modificar() throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void Modificar() throws SQLException
+    {
+        try
+        {
+            Conexion.GetInstancia().Conectar();
+            Conexion.GetInstancia().Ejecutar("UPDATE Sucursal SET Nom_Sucursal = '"+ObSucursal.getNom_Sucursal()+"',Ciu_Sucursal = '"+ObSucursal.getCiu_Sucursal()+"',Dir_Sucursal = '"+ObSucursal.getDir_Sucursal()+"',Tel_Sucursal = '"+ObSucursal.getTel_Sucursal()+"' WHERE Cod_Sucursal ="+ObSucursal.getCod_Sucursal());
+        }
+        catch(SQLException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            Conexion.GetInstancia().Desconectar();
+        }
+        
     }
 
     @Override
-    public void Eliminar() throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void Eliminar() throws SQLException 
+    {
+        try
+        {
+            Conexion.GetInstancia().Conectar();
+            Conexion.GetInstancia().Ejecutar("DELETE FROM Sucursal WHERE Cod_Sucursal ="+ObSucursal.getCod_Sucursal());
+        }
+        catch(SQLException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            Conexion.GetInstancia().Desconectar();
+        }
     }
 
     @Override
-    public void Consultar() throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void Consultar() throws SQLException 
+    {
+        try
+        {
+            Conexion.GetInstancia().Conectar();
+            ResultSet rs = Conexion.GetInstancia().EjecutarConsulta("SELECT Nom_Sucursal ,Ciu_Sucursal ,Dir_Sucursal,Tel_Sucursal FROM Sucursal WHERE Cod_Sucursal ='"+ObSucursal.getCod_Sucursal()+"'");
+            while(rs.next())
+            {
+                ObSucursal.setNom_Sucursal(rs.getString("Nom_Sucursal"));
+                ObSucursal.setCiu_Sucursal(rs.getString("Ciu_Sucursal"));
+                ObSucursal.setDir_Sucursal(rs.getString("Dir_Sucursal"));
+                ObSucursal.setTel_Sucursal(rs.getString("Tel_Sucursal"));
+            }
+        }        
+        catch(SQLException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            Conexion.GetInstancia().Desconectar();
+        }
     }
     
 }
