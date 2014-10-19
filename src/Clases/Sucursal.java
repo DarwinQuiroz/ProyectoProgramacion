@@ -11,7 +11,6 @@ package Clases;
  */
 public class Sucursal 
 { 
-
     public Sucursal(int Id_Sucursal, String Cod_Sucursal, String Nom_Sucursal, String Ciu_Sucursal, String Dir_Sucursal, String Tel_Sucursal) 
     {
         this.Id_Sucursal = Id_Sucursal;
