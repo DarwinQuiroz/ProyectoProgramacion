@@ -11,17 +11,17 @@ package Clases;
  */
 public class Proveedor extends Persona
 { 
-    public Proveedor(String Emp_Proveedor, int RucEmp_Proveedor, String DirEmp_Proveedor, String TelEmp_Proveedor, String Tip_Proveedor, double SalEn_Proveedor,int CedRuc_Persona, String Nom_Persona, String Dir_Persona, String Tel_Persona, String Ape_Persona, String Email_Persona) 
+    public Proveedor(String Emp_Proveedor, int RucEmp_Proveedor, String DirEmp_Proveedor, String TelEmp_Proveedor, String Tip_Proveedor, double SalPen_Proveedor, int Id_Persona, int CedRuc_Persona, String Nom_Persona, String Ape_Persona, String Dir_Persona, String Tel_Persona, String Email_Persona) 
     {
-        super(CedRuc_Persona, Nom_Persona, Dir_Persona, Tel_Persona, Ape_Persona, Email_Persona);
+        super(Id_Persona, CedRuc_Persona, Nom_Persona, Ape_Persona, Dir_Persona, Tel_Persona, Email_Persona);
         this.Emp_Proveedor = Emp_Proveedor;
         this.RucEmp_Proveedor = RucEmp_Proveedor;
         this.DirEmp_Proveedor = DirEmp_Proveedor;
         this.TelEmp_Proveedor = TelEmp_Proveedor;
         this.Tip_Proveedor = Tip_Proveedor;
-        this.SalPen_Proveedor = SalEn_Proveedor;
+        this.SalPen_Proveedor = SalPen_Proveedor;
     }
-    
+       
     private String Emp_Proveedor;
 
     /**

@@ -12,7 +12,21 @@ import java.util.Date;
  * @author Darwin
  */
 public class Compra 
-{    
+{  
+    public Compra(int Id_Compra, Producto Id_Producto, Bodega Id_Bodega, int NumFac_Compra, Date Fec_Compra, String Des_Compra, int CanPro_Compra, double Pcp_Compra, double ValPag_Compra, Empleado Id_Empleado) 
+    {
+        this.Id_Compra = Id_Compra;
+        this.Id_Producto = Id_Producto;
+        this.Id_Bodega = Id_Bodega;
+        this.NumFac_Compra = NumFac_Compra;
+        this.Fec_Compra = Fec_Compra;
+        this.Des_Compra = Des_Compra;
+        this.CanPro_Compra = CanPro_Compra;
+        this.Pcp_Compra = Pcp_Compra;
+        this.ValPag_Compra = ValPag_Compra;
+        this.Id_Empleado = Id_Empleado;
+    }
+    
     private int Id_Compra;
 
     /**

@@ -65,7 +65,6 @@ public class InterfazLogin extends javax.swing.JFrame
                         e.printStackTrace();
                     }
                 }
-
             }
         }.start();
     }

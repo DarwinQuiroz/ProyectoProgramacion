@@ -16,7 +16,7 @@ import java.sql.SQLException;
  */
 public class GestionProveedor implements IGestion
 {
-    Proveedor ObProveedor = new Proveedor(null, 0000000, null, null, null, 00, 0000, null, null, null, null, null);
+    Proveedor ObProveedor = new Proveedor(null, 0, null, null, null, 0, 0, 0, null, null, null, null, null);
 
     public GestionProveedor() 
     {

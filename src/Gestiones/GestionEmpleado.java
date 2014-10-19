@@ -16,7 +16,7 @@ import java.sql.SQLException;
  */
 public class GestionEmpleado implements IGestion
 {
-    Empleado ObEmpleado = new Empleado(null, null, null, 0, 0, 00, 000000, null, null, null, null, null);
+    Empleado ObEmpleado = new Empleado(null, null, null, 0, 0, 00, 0, 00, null, null, null, null, null);
 
     public GestionEmpleado() 
     {

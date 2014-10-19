@@ -10,19 +10,18 @@ package Clases;
  * @author Darwin
  */
 public class Persona 
-{    
-
-    public Persona(int CedRuc_persona, String Nom_Persona, String Dir_Persona, String Tel_Persona, String Ape_Persona, String Email_Persona) 
+{  
+    public Persona(int Id_Persona, int CedRuc_Persona, String Nom_Persona, String Ape_Persona, String Dir_Persona, String Tel_Persona, String Email_Persona) 
     {
         this.Id_Persona = Id_Persona;
-        this.CedRuc_Persona = CedRuc_persona;
+        this.CedRuc_Persona = CedRuc_Persona;
         this.Nom_Persona = Nom_Persona;
+        this.Ape_Persona = Ape_Persona;
         this.Dir_Persona = Dir_Persona;
         this.Tel_Persona = Tel_Persona;
-        this.Ape_Persona = Ape_Persona;
         this.Email_Persona = Email_Persona;
     }
-   
+    
     private int Id_Persona;
 
     /**
@@ -88,6 +87,28 @@ public class Persona
     {
         this.Nom_Persona = Nom_Persona;
     }
+    
+    private String Ape_Persona;
+
+    /**
+     * Get the value of Ape_Persona
+     *
+     * @return the value of Ape_Persona
+     */
+    public String getApe_Persona() 
+    {
+        return Ape_Persona;
+    }
+
+    /**
+     * Set the value of Ape_Persona
+     *
+     * @param Ape_Persona new value of Ape_Persona
+     */
+    public void setApe_Persona(String Ape_Persona) 
+    {
+        this.Ape_Persona = Ape_Persona;
+    }
 
     private String Dir_Persona;
 
@@ -133,29 +154,6 @@ public class Persona
         this.Tel_Persona = Tel_Persona;
     }
     
-    private String Ape_Persona;
-
-    /**
-     * Get the value of Ape_Persona
-     *
-     * @return the value of Ape_Persona
-     */
-    public String getApe_Persona() 
-    {
-        return Ape_Persona;
-    }
-
-    /**
-     * Set the value of Ape_Persona
-     *
-     * @param Ape_Persona new value of Ape_Persona
-     */
-    public void setApe_Persona(String Ape_Persona) 
-    {
-        this.Ape_Persona = Ape_Persona;
-    }
-
-
     private String Email_Persona;
 
     /**

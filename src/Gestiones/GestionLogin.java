@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  */
 public class GestionLogin
 {
-    Empleado ObEmpleado = new Empleado(null, null, null, 0, 0, 00, 000000, null, null, null, null, null);
+    Empleado ObEmpleado = new Empleado(null, null, null, 0, 0, 0, 0, 0, null, null, null, null, null);
     
     public GestionLogin() 
     {

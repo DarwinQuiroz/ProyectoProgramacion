@@ -13,7 +13,6 @@ import java.util.Date;
  */
 public class CotizacionVenta 
 {
-
     public CotizacionVenta(int Id_Venta, Producto Id_Producto, Cliente Id_Cliente, Bodega Id_Bodega, Empleado Id_Empelado, Date Fec_Venta, String Des_Venta, int CanPro_Venta, double Pvp_Venta, String TipPag_Venta, double ValPag_Venta) 
     {
         this.Id_Venta = Id_Venta;

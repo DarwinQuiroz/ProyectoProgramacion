@@ -11,7 +11,7 @@ import java.sql.SQLException;
  */
 public class GestionCliente implements IGestion
 {
-    private Cliente ObCliente = new Cliente(null, 00, 000000, null, null, null, null, null);
+    private Cliente ObCliente = new Cliente(null, 00, 0, 00, null, null, null, null, null);
 
     public GestionCliente() 
     {
