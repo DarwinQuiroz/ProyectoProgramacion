@@ -34,33 +34,25 @@ public class GestionLogin
     
     public void Login() throws SQLException
     {
-    try
-    {
-        Conexion.GetInstancia().Conectar();
-        ResultSet rs = Conexion.GetInstancia().EjecutarConsulta
-        ("SELECT User_Empleado, Clave_Empleado FROM Empleado WHERE User_Empleado ='"+ObEmpleado.getUser_Empleado()+"' AND Clave_Empleado='"+ObEmpleado.getClave_Empleado()+"'");
-        while(rs.next())
+        try
         {
-            ObEmpleado.setUser_Empleado(rs.getString("User_Empleado"));
-            ObEmpleado.setClave_Empleado(rs.getString("Clave_Empleado"));
-            //JOptionPane.showMessageDialog(null, "logueo correcto");            
-//            frmMenu menu=new frmMenu();
-//            menu.show();
-//            menu.setExtendedState(new frmMenu().MAXIMIZED_BOTH);
+            Conexion.GetInstancia().Conectar();
+            ResultSet rs = Conexion.GetInstancia().EjecutarConsulta
+                ("SELECT User_Empleado, Clave_Empleado, Tip_Empleado FROM Empleado WHERE User_Empleado ='"+ObEmpleado.getUser_Empleado()+"'");
+            while(rs.next())
+            {
+                ObEmpleado.setUser_Empleado(rs.getString("User_Empleado"));
+                ObEmpleado.setClave_Empleado(rs.getString("Clave_Empleado"));
+                ObEmpleado.setTip_Empleado(rs.getString("Tip_Empleado"));
+            }
         }
-//        else
-//        {
-//            JOptionPane.showMessageDialog(null,"usuario y clave incorrecto");
-//            
-//        }
-    }
-    catch(SQLException ex)
-    {
-        throw ex;
-    }
-    finally
-    {
-        Conexion.GetInstancia().Desconectar();
-    }
+        catch(SQLException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            Conexion.GetInstancia().Desconectar();
+        }
     }
 }

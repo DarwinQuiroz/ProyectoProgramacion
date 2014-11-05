@@ -16,9 +16,10 @@ public class InterfazLogin extends javax.swing.JFrame
 {
     GestionLogin gestionLogin = new GestionLogin();
     public void PasarDeNegocioAInterfaz()
-    {
+    {        
         txtUsuario.setText(gestionLogin.getEmpleado().getUser_Empleado());
-        jPContrasena.setText(gestionLogin.getEmpleado().getClave_Empleado());
+        txtClave.setText(gestionLogin.getEmpleado().getClave_Empleado());
+        txtTipEm.setText(gestionLogin.getEmpleado().getTip_Empleado());
     }
     
     public InterfazLogin() 
@@ -38,9 +39,9 @@ public class InterfazLogin extends javax.swing.JFrame
         this.setLocationRelativeTo(null);
         this.pack();        
         this.setSize(340,260);
-        //this.setLocation(360,5);
+        txtClave.setVisible(false);
+        txtTipEm.setVisible(false);
         txtUsuario.requestFocus();
-        //jPContrasena.setEnabled(true);
         txtUsuario.setDocument(new Validaciones());
     } 
     
@@ -72,9 +73,47 @@ public class InterfazLogin extends javax.swing.JFrame
    public void iniciarSplash() 
    {
         this.getjProgressBar().setBorderPainted(true);
-        this.getjProgressBar().setForeground(new Color(100, 120, 50, 50));
+        this.getjProgressBar().setForeground(new Color(10, 120, 50, 50));
         this.getjProgressBar().setStringPainted(true);
    }
+   private void Comparar()
+   {           
+       String Usuario = txtUsuario.getText();
+       if(txtClave.getText().equals(String.valueOf(jPContrasena.getPassword())))
+       {
+           JOptionPane.showMessageDialog(this, "BIENVENIDO " +  Usuario);
+           iniciarCarga();
+           iniciarSplash();
+           if (Progreso.getValue()== 100)
+           {
+               JOptionPane.showMessageDialog(null,"Está accediendo al Menú Principal");
+               if(txtTipEm.getText().equals("Administrador"))
+              {  
+                  InterfazAdministrador IrAdmin = new InterfazAdministrador();
+                  IrAdmin.setVisible(true);
+                  dispose();
+              }
+              else if (txtTipEm.getText().equals("Tecnico")) 
+              { 
+                  InterfazTecnico Tecnico = new InterfazTecnico();
+                  Tecnico.setVisible(true);
+                  dispose();
+              }
+              else if (txtTipEm.getText().equals("Vendedor")) 
+              {
+                  InterfazVendedor Vendedor = new InterfazVendedor();
+                  Vendedor.setVisible(true);
+                  dispose();
+              }
+           }
+       }
+       else
+       {
+           JOptionPane.showMessageDialog(this, "Usuario o Contaseña Incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+           txtUsuario.requestFocus();
+       }
+   }
+   
    public javax.swing.JProgressBar getjProgressBar()
    {
        return Progreso;
@@ -97,6 +136,8 @@ public class InterfazLogin extends javax.swing.JFrame
         txtUsuario = new javax.swing.JTextField();
         jPContrasena = new javax.swing.JPasswordField();
         Progreso = new javax.swing.JProgressBar();
+        txtTipEm = new javax.swing.JTextField();
+        txtClave = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setForeground(new java.awt.Color(102, 102, 255));
@@ -166,10 +207,26 @@ public class InterfazLogin extends javax.swing.JFrame
                 jPContrasenaActionPerformed(evt);
             }
         });
+        jPContrasena.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPContrasenaKeyPressed(evt);
+            }
+        });
 
         Progreso.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 ProgresoStateChanged(evt);
+            }
+        });
+
+        txtClave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtClaveActionPerformed(evt);
+            }
+        });
+        txtClave.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtClaveKeyPressed(evt);
             }
         });
 
@@ -178,32 +235,38 @@ public class InterfazLogin extends javax.swing.JFrame
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(btnIngresar)
-                        .addGap(40, 40, 40)
-                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addGap(81, 81, 81)
+                .addComponent(btnIngresar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(89, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(Progreso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(Progreso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(17, 17, 17)
+                                        .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jPContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(38, 38, 38))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jPContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(38, 38, 38))
+                        .addComponent(txtTipEm, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtClave, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(57, 57, 57))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,9 +285,13 @@ public class InterfazLogin extends javax.swing.JFrame
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnSalir)
                     .addComponent(btnIngresar))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTipEm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Progreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
@@ -239,61 +306,25 @@ public class InterfazLogin extends javax.swing.JFrame
     }//GEN-LAST:event_jPContrasenaActionPerformed
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+        if (jPContrasena.getPassword().length!=6) 
+        {
+            JOptionPane.showMessageDialog(this, "Contraseña Incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+            jPContrasena.requestFocus();
+        }
+        else
+        {
         gestionLogin.getEmpleado().setUser_Empleado(txtUsuario.getText());
-        gestionLogin.getEmpleado().setClave_Empleado(jPContrasena.getText());
         try
         {
-            gestionLogin.Login();  
+            gestionLogin.Login();
             PasarDeNegocioAInterfaz();
-            JOptionPane.showMessageDialog(null, "logueo correcto"); 
-            InterfazMenu menu = new InterfazMenu();            
-            //JOptionPane.showMessageDialog(null,"Está accediendo al Menú Principal");
-            menu.setVisible(true);
-            dispose();
-            
+            Comparar();
         }
         catch(SQLException ex)
         {
             JOptionPane.showMessageDialog(this, ex.getMessage());
+        }         
         }
-//        String contraseña;
-//        contraseña = String.valueOf(jPContrasena.getPassword());
-//        String usuario;
-//        usuario = txtUsuario.getText();
-//        if(usuario.equals("DARWIN") && contraseña.equals("1234")) 
-//        {
-//            JOptionPane.showMessageDialog(null,"Bienvenido al Sistema ADMINISTRADOR");
-//            iniciarCarga();
-//            iniciarSplash();
-            //JOptionPane.showMessageDialog(null,"Está accediendo al Menú Principal");
-//        if (Progreso.getValue()== 100) 
-//        {
-//            btnIngresar.setEnabled(true);
-//            InterfazMenu menu = new InterfazMenu();            
-            //JOptionPane.showMessageDialog(null,"Está accediendo al Menú Principal");
-//            menu.setVisible(true);
-//            dispose();
-//            InterfazMenu logearse = new InterfazMenu()
-//            {               
-//            };
-//            JOptionPane.showMessageDialog(null,"Bienvenido al Sistema ADMINISTRADOR");
-//            JOptionPane.showMessageDialog(null,"Está accediendo al Menú Principal");
-//            logearse.setVisible(true);
-//            this.dispose();
-        //}            
-//        }
-//        else if(!"DARWIN".equals(usuario))
-//        {            
-//            JOptionPane.showMessageDialog(null,"Usuario Incorrecto");
-//            txtUsuario.setText("");
-//            txtUsuario.requestFocusInWindow();
-//         }
-//        else if(!"1234".equals(contraseña))
-//        {
-//            JOptionPane.showMessageDialog(null,"Contraseña Incorrecta");
-//            jPContrasena.setText("");
-//            jPContrasena.requestFocusInWindow();
-//        }
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void btnIngresarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnIngresarKeyPressed
@@ -310,19 +341,45 @@ public class InterfazLogin extends javax.swing.JFrame
 
     private void txtUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyPressed
         Validaciones.SoloLetras(txtUsuario);
-        Validaciones.CantidadCaracteres(txtUsuario, 6);        
+        Validaciones.CantidadCaracteres(txtUsuario, 20);        
     }//GEN-LAST:event_txtUsuarioKeyPressed
 
     private void ProgresoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_ProgresoStateChanged
         if (Progreso.getValue()== 100) 
         {
-            JOptionPane.showMessageDialog(null,"Está accediendo al Menú Principal");
-            InterfazMenu logearse = new InterfazMenu()
-            {};
-            logearse.setVisible(true);
-            this.dispose();
+            JOptionPane.showMessageDialog(null,"Está accediendo al Menú Principal");           
+            if(txtTipEm.getText().equals("Administrador"))
+              {  
+                  InterfazAdministrador IrAdmin = new InterfazAdministrador();
+                  IrAdmin.setVisible(true);
+                  dispose();
+              }
+              else if (txtTipEm.getText().equals("Tecnico")) 
+              { 
+                  InterfazTecnico Tecnico = new InterfazTecnico();
+                  Tecnico.setVisible(true);
+                  dispose();
+              }
+              else if (txtTipEm.getText().equals("Vendedor")) 
+              {
+                  InterfazVendedor Vendedor = new InterfazVendedor();
+                  Vendedor.setVisible(true);
+                  dispose();
+              }
         }
     }//GEN-LAST:event_ProgresoStateChanged
+
+    private void txtClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtClaveActionPerformed
+
+    private void jPContrasenaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPContrasenaKeyPressed
+        Validaciones.CantidadCaracteres(jPContrasena, 6);        
+    }//GEN-LAST:event_jPContrasenaKeyPressed
+
+    private void txtClaveKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtClaveKeyPressed
+        Validaciones.CantidadCaracteres(txtClave, 6);
+    }//GEN-LAST:event_txtClaveKeyPressed
 
     /**
      * @param args the command line arguments
@@ -371,6 +428,8 @@ public class InterfazLogin extends javax.swing.JFrame
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPasswordField jPContrasena;
+    private javax.swing.JTextField txtClave;
+    private javax.swing.JTextField txtTipEm;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

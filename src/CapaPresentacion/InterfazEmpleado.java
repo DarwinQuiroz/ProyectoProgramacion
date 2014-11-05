@@ -556,7 +556,7 @@ public class InterfazEmpleado extends javax.swing.JFrame
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        InterfazMenu IrMenu = new InterfazMenu();
+        InterfazAdministrador IrMenu = new InterfazAdministrador();
         IrMenu.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
